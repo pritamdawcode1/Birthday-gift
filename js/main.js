@@ -84,7 +84,7 @@ function startMusic(){
   }catch(e){/* music is intentionally non-blocking */}
 }
 $("#openSurprise").addEventListener("click",()=>{
-  startMusic(); burst(36); sparkles(16);
+  /*startMusic()*/; burst(36); sparkles(16);
   $("#welcomeGift").classList.add("opening");
   setTimeout(()=>{setStage(1);},700);
 });
