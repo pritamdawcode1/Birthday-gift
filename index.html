@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8e8ef">
+  <meta name="description" content="Pastel Dreamland — a magical interactive birthday surprise.">
+  <title>Pastel Dreamland ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+    <div id="effects" aria-hidden="true"></div>
+
+    <!-- 1. Welcome -->
+    <section class="stage active" id="stage-welcome" data-stage="0">
+      <div class="storybook">
+        <div class="eyebrow">PASTEL DREAMLAND</div>
+        <div class="gift-scene">
+          <div class="gift-box" id="welcomeGift" aria-hidden="true">
+            <div class="gift-lid"></div><div class="gift-body"></div>
+            <div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div>
+            <div class="gift-bow"><i></i><i></i><b></b></div>
+          </div>
+          <div class="cat-sticker cat-welcome" aria-hidden="true"></div>
+          <div class="sparkle s1">✦</div><div class="sparkle s2">✧</div><div class="sparkle s3">⋆</div>
+        </div>
+        <h1>A Little World<br><em>Made Just for You</em></h1>
+        <p class="lead">A special little wonderland, created to make your day magical.</p>
+        <button class="primary-btn" id="openSurprise">Open Your Surprise <span>✦</span></button>
+        <div class="tiny-note">Turn up your volume for a tiny birthday melody ♡</div>
+      </div>
+    </section>
+
+    <!-- 2. Decoration -->
+    <section class="stage" id="stage-decor" data-stage="1">
+      <div class="party-room">
+        <div class="fairy-line left-line"></div><div class="fairy-line right-line"></div>
+        <div class="bunting left-bunting"></div><div class="bunting right-bunting"></div>
+        <div class="banner" id="birthdayBanner">
+          <span>H</span><span>A</span><span>P</span><span>P</span><span>Y</span>
+          <i>♡</i>
+          <span>B</span><span>I</span><span>R</span><span>T</span><span>H</span><span>D</span><span>A</span><span>Y</span>
+        </div>
+        <div class="balloon balloon-pink"></div><div class="balloon balloon-lav"></div>
+        <div class="balloon balloon-peach"></div>
+        <div class="party-message">
+          <div class="eyebrow">THE ROOM IS READY</div>
+          <h2>Something lovely<br>is about to happen…</h2>
+          <p>Every little detail was decorated with you in mind.</p>
+        </div>
+        <button class="primary-btn decor-next" id="decorNext">Let’s Bake Something Sweet <span>♡</span></button>
+      </div>
+    </section>
+
+    <!-- 3. Baking -->
+    <section class="stage" id="stage-bake" data-stage="2">
+      <div class="bake-scene">
+        <div class="bake-copy">
+          <div class="eyebrow">MASTER CHEF MODE</div>
+          <h2>MasterChef is Baking<br><em>Something Special for You!</em></h2>
+          <p id="bakeMessage">Gathering the sweetest ingredients...</p>
+        </div>
+        <div class="baker-visual">
+          <div class="bake-glow"></div>
+          <img id="bakerGif" src="assets/gifs/1000272074.gif" alt="Cute cat baking">
+          <div class="flour flour1">•</div><div class="flour flour2">✦</div><div class="flour flour3">·</div>
+        </div>
+        <div class="progress-wrap"><div class="progress-track"><div id="bakeProgress"></div></div><span id="progressText">0%</span></div>
+        <div class="ingredient-pills"><span>♡ flour</span><span>✦ sugar</span><span>♡ vanilla</span><span>✦ extra love</span></div>
+      </div>
+    </section>
+
+    <!-- 4. Cake reveal -->
+    <section class="stage" id="stage-cake">
+      <div class="cake-stage">
+        <div class="eyebrow">FRESH FROM THE OVEN</div>
+        <div class="cake-wrap" id="cakeReveal">
+          <div class="cake-glow"></div>
+          <div class="cake">
+            <div class="cake-top"><span class="berry">●</span><span class="berry b2">●</span><span class="berry b3">●</span></div>
+            <div class="cake-cream"></div><div class="cake-layer layer1"></div><div class="cake-layer layer2"></div>
+            <div class="cake-drip"></div>
+            <div class="candle c1"><i></i></div><div class="candle c2"><i></i></div><div class="candle c3"><i></i></div>
+          </div>
+        </div>
+        <h2>Freshly Baked <em>With Love!</em></h2>
+        <p>One special cake, made for one very special person.</p>
+        <button class="primary-btn" id="cakeContinue">Continue to Your Wish <span>→</span></button>
+      </div>
+    </section>
+
+    <!-- 5. Candle -->
+    <section class="stage" id="stage-candle">
+      <div class="candle-stage">
+        <div class="eyebrow">A LITTLE BIRTHDAY RITUAL</div>
+        <h2>Make a Wish <em>♡</em></h2>
+        <p id="wishInstruction">Light the candles, then make a wish.</p>
+        <div class="interactive-cake" id="wishCake">
+          <div class="wish-cake-glow"></div>
+          <div class="wish-cake">
+            <div class="wish-cake-top"><span></span><span></span><span></span></div>
+            <div class="wish-cream"></div>
+            <div class="wish-layer wish-layer-bottom"></div>
+            <div class="wish-layer wish-layer-top"></div>
+            <div class="wish-drip"></div>
+            <div class="wish-candle wc1"><i></i></div>
+            <div class="wish-candle wc2"><i></i></div>
+            <div class="wish-candle wc3"><i></i></div>
+          </div>
+        </div>
+        <div class="candle-actions">
+          <button class="soft-btn" id="lightCandles">Light the Candles 🕯️</button>
+          <button class="soft-btn hidden" id="micBlow">Blow the Candles 🎤</button>
+          <button class="ghost-btn hidden" id="manualBlow">Extinguish Candles Manually</button>
+        </div>
+        <div class="listen-status" id="listenStatus"></div>
+        <p class="micro-help hidden" id="microHelp">Blow gently towards your microphone. Microphone access is optional.</p>
+        <div id="wishCelebration" class="wish-celebration hidden">
+          <div class="big-heart">♡</div>
+          <h3>Your Wish Has Been Sent to the Universe! ✨</h3>
+          <p>May all your beautiful wishes come true. Happy Birthday!</p>
+          <button class="primary-btn" id="cutCake">Cut the Cake 🎂</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5b cake cutting -->
+    <section class="stage" id="stage-cut">
+      <div class="cut-stage">
+        <div class="eyebrow">A SLICE OF HAPPINESS</div>
+        <h2>Let's Share Some <em>Happiness!</em></h2>
+        <div class="cut-cake-art" id="cutCakeArt">
+          <div class="cut-cake intact-cake">
+            <div class="cut-cake-top"><span></span><span></span><span></span></div>
+            <div class="cut-cream"></div>
+            <div class="cut-layer cut-layer-bottom"></div>
+            <div class="cut-layer cut-layer-top"></div>
+            <div class="cut-drip"></div>
+            <div class="cut-candle cc1"><i></i></div>
+            <div class="cut-candle cc2"><i></i></div>
+            <div class="cut-candle cc3"><i></i></div>
+          </div>
+          <div class="cake-half cake-half-left"></div>
+          <div class="cake-half cake-half-right"></div>
+          <div class="knife" aria-hidden="true"></div>
+        </div>
+        <button class="primary-btn" id="cutAction">Cut the Cake 🎂</button>
+        <p id="cutMessage" class="hidden">A little sweetness is always better when it is shared. ♡</p>
+        <button class="soft-btn hidden" id="toGifts">Discover Your Gifts ✦</button>
+      </div>
+    </section>
+
+    <!-- 6. Gifts -->
+    <section class="stage" id="stage-gifts">
+      <div class="gifts-stage">
+        <div class="eyebrow">FOUR LITTLE SURPRISES</div>
+        <h2>Pick a Gift <em>♡</em></h2>
+        <p class="section-note">Open them one at a time. Each one has something just for you.</p>
+        <div class="gift-grid">
+          <article class="gift-card pink" data-gift="0"><div class="gift-top"><span>✦</span></div><div class="gift-ribbon"></div><div class="gift-bow">♡</div><h3>A Wish</h3><div class="gift-surprise">May every quiet wish in your heart find its way to you.</div><button class="gift-open">Open ♡</button></article>
+          <article class="gift-card lavender" data-gift="1"><div class="gift-top"><span>✧</span></div><div class="gift-ribbon"></div><div class="gift-bow">✦</div><h3>A Reminder</h3><div class="gift-surprise">You are allowed to celebrate how far you've come. You are more wonderful than you realize.</div><button class="gift-open">Open ♡</button></article>
+          <article class="gift-card peach" data-gift="2"><div class="gift-top"><span>♡</span></div><div class="gift-ribbon"></div><div class="gift-bow">✧</div><h3>A Promise</h3><div class="gift-surprise">There will always be more tiny joys waiting around the corner. Keep making room for them.</div><button class="gift-open">Open ♡</button></article>
+          <article class="gift-card cream" data-gift="3"><div class="gift-top"><span>★</span></div><div class="gift-ribbon"></div><div class="gift-bow">♡</div><h3>A Little Magic</h3><div class="gift-surprise">Whenever life feels ordinary, remember: you can make a little magic of your own.</div><button class="gift-open">Open ♡</button></article>
+        </div>
+        <button class="primary-btn gifts-next hidden" id="giftsNext">There’s One More Thing… <span>♡</span></button>
+      </div>
+    </section>
+
+    <!-- 7. Letter -->
+    <section class="stage" id="stage-letter">
+      <div class="letter-stage">
+        <div class="eyebrow">A LETTER, JUST FOR YOU</div>
+        <h2>Something I Wanted You to Know</h2>
+        <button class="envelope" id="openLetter" aria-label="Open birthday letter">
+          <div class="envelope-flap"></div><div class="seal">♡</div><div class="paper-peek">A little note…</div>
+        </button>
+        <p>Tap the envelope to open your birthday letter.</p>
+        <button class="ghost-btn" id="letterSkip">Maybe Later →</button>
+      </div>
+    </section>
+
+    <!-- Letter modal intentionally used for the separate letter experience -->
+    <div class="letter-overlay" id="letterOverlay" aria-hidden="true">
+      <div class="letter-paper">
+        <button class="close-letter" id="closeLetter" aria-label="Close letter">×</button>
+        <div class="paper-sparkle">✦ ♡ ✧</div>
+        <h2>My Birthday Note</h2>
+        <p id="typedLetter"></p><span class="cursor">▌</span>
+        <div class="signature">With all the sweetest wishes, ♡</div>
+      </div>
+    </div>
+
+    <!-- 8. Extras -->
+    <section class="stage" id="stage-extras">
+      <div class="extras-stage">
+        <div class="eyebrow">A FEW EXTRA SPARKLES</div>
+        <h2>Because One Surprise <em>Wasn't Enough</em></h2>
+        <div class="extras-grid">
+          <button class="extra-card" id="magicStar"><span class="extra-icon">★</span><strong>Wish on a Star</strong><small>Tap for a secret wish</small></button>
+          <button class="extra-card" id="bubblePop"><span class="extra-icon">♡</span><strong>Heart Bubbles</strong><small>Pop a little happiness</small></button>
+          <button class="extra-card" id="catTap"><span class="extra-icon">🐱</span><strong>Chef Cat</strong><small>See what he thinks</small></button>
+        </div>
+        <div id="extraMessage" class="extra-message">Choose a tiny surprise above ✨</div>
+        <button class="primary-btn" id="finaleNext">Take Me to the Finale ✦</button>
+      </div>
+    </section>
+
+    <!-- 9. Finale -->
+    <section class="stage" id="stage-finale">
+      <div class="finale-stage">
+        <div class="finale-balloons">🎈 ✨ 🎈</div>
+        <div class="cat-final">🐱‍🍰</div>
+        <div class="eyebrow">THE MAGIC CONTINUES</div>
+        <h1>HAPPY <em>BIRTHDAY!</em></h1>
+        <p>May your life always be filled with happiness, laughter, beautiful memories, and endless little moments of magic.</p>
+        <div class="final-hearts">♡ ✦ ♡ ✧ ♡</div>
+        <button class="primary-btn" id="replay">Replay the Magic ♡</button>
+      </div>
+    </section>
+
+    <div class="stage-nav">
+      <button id="backBtn" class="nav-btn" aria-label="Go back">← Back</button>
+      <span id="stageDots"></span> 
+    </div>
+  </div> 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
