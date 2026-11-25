@@ -661,7 +661,7 @@
   }
 
   const letterText =
-    "I don't know how to make a birthday wish big enough to describe how special you are, but I hope this little message makes you smile. I hope you get everything you've been quietly wishing for, meet beautiful moments along the way, and never run out of reasons to be happy. Don't change the little things that make you you. Keep being your silly, lovely self, and enjoy every bit of your day. You deserve so much happiness, not just today but on all the ordinary days too. Happy Birthday! ♡"
+    "I don't know how to put into words just how special you are, but I hope this little message makes you smile. Your existence makes the world a little brighter, and I hope you never forget that. May this year bring you everything you've been quietly wishing for, unexpected laughter, beautiful moments, and people who make you feel at home. Keep dreaming, keep smiling, and never lose those little things that make you who you are. I hope you get a thousand reasons to be happy, not just today but on all the ordinary days too. You deserve all the happiness in the world. Happy Birthday! ♡  ♡"
   let typingTimer;
 
   function typeLetter() {
