@@ -661,8 +661,7 @@
   }
 
   const letterText =
-    "Today is a little reminder that your existence makes the world brighter. I hope this year brings you soft mornings, unexpected laughter, people who feel like home, and countless reasons to smile. Keep your beautiful heart, keep dreaming, and keep making ordinary moments magical. You deserve a birthday as wonderful as you are. Happy Birthday — today, tomorrow, and in all the little celebrations still waiting for you. ♡";
-
+    "I don't know how to make a birthday wish big enough to describe how special you are, but I hope this little message makes you smile. I hope you get everything you've been quietly wishing for, meet beautiful moments along the way, and never run out of reasons to be happy. Don't change the little things that make you you. Keep being your silly, lovely self, and enjoy every bit of your day. You deserve so much happiness, not just today but on all the ordinary days too. Happy Birthday! ♡"
   let typingTimer;
 
   function typeLetter() {
